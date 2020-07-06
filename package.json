@@ -1,0 +1,26 @@
+{
+  "name": "select-plugin",
+  "version": "1.0.0",
+  "description": "pure javascript select plugin",
+  "private": true,
+  "scripts": {
+    "serve": "",
+    "build": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnjKrynskyi/select-plugin.git"
+  },
+  "keywords": [
+    "javascript",
+    "select",
+    "tool",
+    "plugin"
+  ],
+  "author": "Andrii Krynskyi",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
