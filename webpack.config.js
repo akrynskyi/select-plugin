@@ -6,26 +6,27 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const DEV_MODE = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  entry: './src/main.js',
+  context: path.resolve(__dirname, 'src'),
+  mode: 'development',
+  entry: './main.js',
 
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].bundle.[hash].js',
     path: path.resolve(__dirname, 'dist')
   },
 
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
-      '~': ['node_modules']
     }
   },
 
-  devtool: 'eval-cheap-source-map',
+  devtool: DEV_MODE ? '#source-map' : false,
 
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     port: 8081,
-    hot: true
+    hot: false
   },
 
   module: {
@@ -39,7 +40,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           {
-            loader: DEV_MODE ? 'style-loader' : MiniCssExtractPlugin.loader,
+            loader: MiniCssExtractPlugin.loader,
             options: {
               hmr: DEV_MODE,
               reloadAll: true
@@ -62,7 +63,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: DEV_MODE ? '[name].css' : '[name].[hash].css',
     }),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './index.html'
+    }),
     new CleanWebpackPlugin()
   ],
 }

@@ -1,0 +1,19 @@
+@import 'reset.scss';
+@import 'vars.scss';
+@import '@/select/select.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+.view {
+  min-height: 100vh;
+  max-width: 740px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
