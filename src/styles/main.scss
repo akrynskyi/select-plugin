@@ -13,7 +13,34 @@ body {
   min-height: 100vh;
   max-width: 740px;
   margin: 0 auto;
+  padding: 50px 0px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 1px solid $border;
+  border-radius: 4px;
+}
+
+.wrap {
+  width: 50%;
+
+  &:not(:last-child) {
+    margin-right: 60px;
+  }
+}
+
+.control {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  margin-bottom: 20px;
+
+  & > span {
+    margin-right: 15px;
+  }
 }

@@ -1,6 +1,9 @@
 import '@/styles/main.scss';
 import { Select } from '@/select/Select.js';
 
+const destroyBtn = document.getElementById('btn');
+const displayValue = document.getElementById('value');
+
 const select = new Select({
   selector: '#select',
   label: 'Fruits',
@@ -10,8 +13,12 @@ const select = new Select({
     'Cherry',
     'Pear',
     'Strawberry'
-  ]
+  ],
+  callback: display
 });
 
-document.getElementById('btn').addEventListener('click', () => select.destroy());
+destroyBtn.addEventListener('click', () => select.destroy());
 
+function display(value) {
+  displayValue.innerText = value;
+}

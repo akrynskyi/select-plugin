@@ -2,8 +2,8 @@
   position: relative;
   cursor: pointer;
   min-width: 200px;
-  padding: 5px 10px;
-  border-bottom: 1px solid #ccc;
+  padding: 10px 0px;
+  border-bottom: 1px solid $border;
 
   &::before {
     content: "";
@@ -26,9 +26,57 @@
   &__label {
     font-size: 16px;
     font-weight: 300;
+    pointer-events: none;
   }
 
   &__options {
     display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: $bgc;
+    opacity: 0;
+    transform: scaleX(.8) scaleY(0);
+    transform-origin: 0 0;
+    transition: all .2s linear;
+    box-shadow:
+      0 2px 2px 0 rgba(0,0,0,0.14),
+      0 3px 1px -2px rgba(0,0,0,0.12),
+      0 1px 5px 0 rgba(0,0,0,0.2);
+
+    &.block {
+      display: block;
+    }
+
+    &.active {
+      opacity: 1;
+      transform-origin: 0px 100%;
+      transform: scaleX(1) scaleY(1);
+    }
+
+    & > li {
+      cursor: pointer;
+      min-height: 50px;
+      line-height: 1.5rem;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      padding: 0px 15px;
+
+      &:hover {
+        background-color: $border;
+      }
+
+      &.disabled {
+        background-color: $border;
+      }
+
+      &.selected {
+        background-color: $border;
+      }
+    }
   }
 }
